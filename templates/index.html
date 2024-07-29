@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 95%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fish Prediction</h1>
+        
+        <h2>Regression (Predict Weight)</h2>
+        <form action="/predict_regression" method="post">
+            <label for="length1">Length1:</label>
+            <input type="text" id="length1" name="length1" required>
+            
+            <label for="length2">Length2:</label>
+            <input type="text" id="length2" name="length2" required>
+            
+            <label for="length3">Length3:</label>
+            <input type="text" id="length3" name="length3" required>
+            
+            <label for="height">Height:</label>
+            <input type="text" id="height" name="height" required>
+            
+            <label for="width">Width:</label>
+            <input type="text" id="width" name="width" required>
+            
+            <input type="submit" value="Predict Weight">
+        </form>
+
+       
+
+        {% if result %}
+        <div class="result">
+            <h2>Result</h2>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
